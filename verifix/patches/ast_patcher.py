@@ -5,6 +5,7 @@ from __future__ import annotations
 import ast
 import difflib
 import re
+import textwrap
 from typing import Optional, Tuple
 
 
@@ -81,10 +82,12 @@ class ASTPatcher:
         indent = len(target_line_text) - len(target_line_text.lstrip())
         indent_str = target_line_text[:indent]
 
-        formatted_lines = []
-        for line in new_function_code.strip().splitlines():
-            formatted_lines.append(indent_str + line if indent_str and not line.startswith(indent_str) else line)
-        replacement_text = "\n".join(formatted_lines) + "\n"
+        # Normalize new_function_code by dedenting, then re-indenting with target indent_str
+        dedented_code = textwrap.dedent(new_function_code.strip())
+        if indent_str:
+            replacement_text = textwrap.indent(dedented_code, indent_str) + "\n"
+        else:
+            replacement_text = dedented_code + "\n"
 
         prefix = "".join(lines[:start_line])
         suffix = "".join(lines[end_line:])

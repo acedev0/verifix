@@ -5,7 +5,7 @@ from __future__ import annotations
 import argparse
 import os
 import sys
-from typing import Optional
+from typing import Any, Optional
 
 from verifix.core.engine import VeriFixEngine
 from verifix.core.types import Specification, VerificationStatus

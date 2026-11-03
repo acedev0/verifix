@@ -142,3 +142,40 @@ def target_func(a: int, b: int) -> int:
     # Check that patched module parses as valid Python
     tree = ast.parse(patched_module)
     assert len(tree.body) == 4  # import + 3 functions
+
+
+def test_ast_patcher_class_method_indentation():
+    """Verify that replacing a method inside a class maintains valid indentation and AST."""
+    class_code = '''
+class BankService:
+    def __init__(self, name: str):
+        self.name = name
+
+    def withdraw(self, balance: int, amount: int) -> int:
+        return balance - amount
+
+    def deposit(self, balance: int, amount: int) -> int:
+        return balance + amount
+'''
+    new_method = '''
+def withdraw(self, balance: int, amount: int) -> int:
+    if amount <= balance:
+        return balance - amount
+    return balance
+'''
+    patched = ASTPatcher.replace_function_in_source(class_code, "withdraw", new_method)
+    assert "if amount <= balance:" in patched
+    # Critical: parsing must not raise IndentationError!
+    tree = ast.parse(patched)
+    cls_node = [n for n in tree.body if isinstance(n, ast.ClassDef)][0]
+    methods = [n.name for n in cls_node.body if isinstance(n, ast.FunctionDef)]
+    assert methods == ["__init__", "withdraw", "deposit"]
+
+
+def test_cli_typing_inspection():
+    """Verify that cli functions can be inspected with get_type_hints without NameError."""
+    import typing
+    import verifix.cli
+    hints = typing.get_type_hints(verifix.cli.run_patch)
+    assert "return" in hints
+

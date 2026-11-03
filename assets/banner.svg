@@ -115,5 +115,5 @@
 
   <!-- Footer Captions -->
   <text class="mono" x="60" y="258" fill="#475569">Theorem: Φ_path ∧ Φ_pre ∧ ¬Φ_post ⟹ UNSAT</text>
-  <text class="mono" x="940" y="258" text-anchor="end" fill="#10b981">✓ 45/45 Formal Tests Verified Sound</text>
+  <text class="mono" x="940" y="258" text-anchor="end" fill="#10b981">✓ 47/47 Formal Tests Verified Sound</text>
 </svg>

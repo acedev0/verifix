@@ -8,7 +8,7 @@
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776ab?style=flat-square&logo=python&logoColor=white)](https://python.org)
 [![SMT Solver](https://img.shields.io/badge/SMT%20Engine-Z3%20v4.12-22c55e?style=flat-square)](https://github.com/Z3Prover/z3)
 [![Formal Proof](https://img.shields.io/badge/Soundness-Formal%20Proof%20(UNSAT)-6366f1?style=flat-square)](./docs/ARCHITECTURE.md)
-[![Tests](https://img.shields.io/badge/Tests-45%2F45%20Passing-brightgreen?style=flat-square)](./ci/tests.yml)
+[![Tests](https://img.shields.io/badge/Tests-47%2F47%20Passing-brightgreen?style=flat-square)](./ci/tests.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](./LICENSE)
 
 <br />
@@ -195,7 +195,7 @@ def withdraw(balance: int, amount: int) -> int:
 
 ## 🧪 Verification Record & Tests
 
-The VeriFix test suite contains **45 exhaustive formal tests** covering AST parsing, bounded loop unrolling, bitwise operations, integer overflow, safety rule enforcement, and multistep CEGIS repairs:
+The VeriFix test suite contains **47 exhaustive formal tests** covering AST parsing, bounded loop unrolling, bitwise operations, integer overflow, safety rule enforcement, class method transplantation, and multistep CEGIS repairs:
 
 ```bash
 pytest tests/ -v
@@ -203,18 +203,18 @@ pytest tests/ -v
 
 ```
 ============================= test session starts =============================
-collected 45 items
+collected 47 items
 
 tests/test_cegis_loop.py ...                                             [  6%]
-tests/test_cli.py ....                                                   [ 15%]
-tests/test_contracts.py ...                                              [ 22%]
-tests/test_edge_cases.py .......                                         [ 37%]
-tests/test_neurosymbolic_fixes.py ...............                        [ 71%]
+tests/test_cli.py ....                                                   [ 14%]
+tests/test_contracts.py ...                                              [ 21%]
+tests/test_edge_cases.py .........                                       [ 40%]
+tests/test_neurosymbolic_fixes.py ...............                        [ 72%]
 tests/test_safety_rules.py .....                                         [ 82%]
 tests/test_symbolic_exec.py .....                                        [ 93%]
 tests/test_verifier.py ...                                               [100%]
 
-============================= 45 passed in 1.85s ==============================
+============================= 47 passed in 1.83s ==============================
 ```
 
 ---
