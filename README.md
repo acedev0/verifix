@@ -8,7 +8,7 @@
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776ab?style=flat-square&logo=python&logoColor=white)](https://python.org)
 [![SMT Solver](https://img.shields.io/badge/SMT%20Engine-Z3%20v4.12-22c55e?style=flat-square)](https://github.com/Z3Prover/z3)
 [![Formal Proof](https://img.shields.io/badge/Soundness-Formal%20Proof%20(UNSAT)-6366f1?style=flat-square)](./docs/ARCHITECTURE.md)
-[![Tests](https://img.shields.io/badge/Tests-45%2F45%20Passing-brightgreen?style=flat-square)](https://github.com/acedev0/verifix/actions)
+[![Tests](https://img.shields.io/badge/Tests-45%2F45%20Passing-brightgreen?style=flat-square)](./ci/tests.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](./LICENSE)
 
 <br />
