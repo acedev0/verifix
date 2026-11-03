@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "verifix"
+version = "0.1.0"
+description = "Neurosymbolic Code Vulnerability & Bug Patcher combining LLM generative patching with SMT formal verification"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "Ace", email = "Acedevmc@gmail.com"},
+    {name = "VeriFix Contributors"}
+]
+keywords = ["formal-verification", "smt", "z3", "neurosymbolic", "llm", "code-repair", "cegis"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Security",
+]
+dependencies = [
+    "z3-solver>=4.12.0",
+    "typing_extensions>=4.5.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/acedev0/verifix"
+Repository = "https://github.com/acedev0/verifix"
+Issues = "https://github.com/acedev0/verifix/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+]
+gemini = [
+    "google-genai>=0.1.0",
+    "requests>=2.28.0",
+]
+
+[project.scripts]
+verifix = "verifix.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
