@@ -24,6 +24,7 @@ classifiers = [
 dependencies = [
     "z3-solver>=4.12.0",
     "typing_extensions>=4.5.0",
+    "requests>=2.31.0",
 ]
 
 [project.urls]
@@ -47,3 +48,6 @@ verifix = "verifix.cli:main"
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py"]
+
+[tool.setuptools.packages.find]
+include = ["verifix*"]
